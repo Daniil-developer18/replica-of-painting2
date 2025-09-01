@@ -1,0 +1,82 @@
+$activeNavLink: #2196f3;
+$buttonCartMenuIcon: #424242;
+$buttonCartMenuHover: #4caf50;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #e1ede6;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #598d66;
+    @media (max-width: 768px) {
+      order: 2;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 32px;
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    .navLink {
+      text-decoration: none;
+      color: #2c2d35;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+      &:hover {
+        background: rgba(76, 175, 80, 0.1);
+        color: #2c2d35;
+      }
+      &.active {
+        color: $activeNavLink;
+        background: rgba(0, 123, 255, 0.1);
+        border-bottom: 2px solid $activeNavLink;
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  @media (max-width: 768px) {
+    order: 3;
+  }
+
+  .cart {
+    position: relative;
+
+    .cartButton {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      font-size: 18px;
+      color: $buttonCartMenuIcon;
+      position: relative;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $buttonCartMenuHover;
+        transform: scale(1.05);
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 300ms ease-out;
+  &[data-state="closed"] {
+    animation: fadeOut 300ms ease-in forwards;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+.mobileMenuContent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: #e1ede6;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 300ms ease-out;
+  &[data-state="closed"] {
+    animation: slideOut 300ms ease-in forwards;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+}
+
+.mobileMenuClose {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.mobileMenuLink {
+  display: block;
+  margin-top: 20px;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #2c2d35;
+  text-decoration: none;
+  &:hover {
+    color: #4caf50;
+  }
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #424242;
+
+  &:hover {
+    color: #4caf50;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+    order: 1;
+  }
+}
