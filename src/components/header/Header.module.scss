@@ -1,4 +1,4 @@
-$activeNavLink: #2196f3;
+$activeNavLink: #598d66;
 $buttonCartMenuIcon: #424242;
 $buttonCartMenuHover: #4caf50;
 
@@ -18,7 +18,7 @@ $buttonCartMenuHover: #4caf50;
   .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #598d66;
+    color: $activeNavLink;
     @media (max-width: 768px) {
       order: 2;
     }

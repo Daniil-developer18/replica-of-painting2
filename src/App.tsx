@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
+import Reproduction from "./components/reproduction/Reproduction";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       </div>
       <main>
         <Hero />
+        <Reproduction />
       </main>
     </BrowserRouter>
   );

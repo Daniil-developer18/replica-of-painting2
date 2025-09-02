@@ -1,0 +1,59 @@
+.reproduction {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 80px auto 0 auto;
+
+  .reproductionHeader {
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .reproductionTitle {
+    font-size: 40px;
+    font-weight: 500;
+    color: #2c2d35;
+    margin: 0;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    gap: 32px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    background: #d4e8d9;
+    color: #2c2d35;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+
+    &:hover {
+      color: #4caf50;
+    }
+
+    &.selected {
+      background: #376b44;
+      color: #f4f6f5;
+    }
+  }
+  .paintingsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    padding: 0 32px;
+    gap: 40px;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 400px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

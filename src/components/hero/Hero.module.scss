@@ -1,4 +1,4 @@
-$primary-color: #4caf50;
+
 $text-dark: #333;
 $text-light: #666;
 $hero-font-size: 60px;
@@ -49,7 +49,7 @@ $hero-font-size: 60px;
         }
 
         .titlePart3 {
-          color: $primary-color;
+          color: var(--primary-color);
           font-weight: 500;
           font-size: $hero-font-size;
           line-height: 110%;
@@ -74,14 +74,14 @@ $hero-font-size: 60px;
       .heroButton {
         padding: 15px 30px;
         background: transparent;
-        border: 2px solid $primary-color;
-        color: $primary-color;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
         font-size: 16px;
         cursor: pointer;
         transition: all 0.3s ease;
 
         &:hover {
-          background: $primary-color;
+          background: var(--primary-color);
           color: white;
         }
       }
