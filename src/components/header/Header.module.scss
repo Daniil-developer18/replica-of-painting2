@@ -1,7 +1,3 @@
-$activeNavLink: #598d66;
-$buttonCartMenuIcon: #424242;
-$buttonCartMenuHover: #4caf50;
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -13,12 +9,13 @@ $buttonCartMenuHover: #4caf50;
   left: 0;
   right: 0;
   z-index: 100;
-  background: #e1ede6;
+  background: var(--bg-primary);
 
   .logo {
     font-size: 24px;
     font-weight: bold;
-    color: $activeNavLink;
+    text-decoration: none;
+    color: var(--secondary-color);
     @media (max-width: 768px) {
       order: 2;
     }
@@ -33,21 +30,23 @@ $buttonCartMenuHover: #4caf50;
 
     .navLink {
       text-decoration: none;
-      color: #2c2d35;
+      color: var(--text-dark);
       font-weight: 500;
       padding: 8px 16px;
       border-radius: 4px;
       transition: all 0.3s ease;
       border-bottom: 2px solid transparent;
+      cursor: pointer;
+      font-size: inherit;
       &:hover {
         background: rgba(76, 175, 80, 0.1);
-        color: #2c2d35;
+        color: var(--text-dark);
       }
-      &.active {
-        color: $activeNavLink;
-        background: rgba(0, 123, 255, 0.1);
-        border-bottom: 2px solid $activeNavLink;
-      }
+    }
+    .active {
+      color: var(--secondary-color);
+      background: rgba(76, 175, 80, 0.1);
+      border-bottom: 2px solid var(--secondary-color);
     }
   }
 }
@@ -69,12 +68,11 @@ $buttonCartMenuHover: #4caf50;
       cursor: pointer;
       padding: 8px;
       font-size: 18px;
-      color: $buttonCartMenuIcon;
-      position: relative;
+      color: var(--icon-color);
       transition: all 0.3s ease;
 
       &:hover {
-        color: $buttonCartMenuHover;
+        color: var(--icon-hover);
         transform: scale(1.05);
       }
     }

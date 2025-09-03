@@ -1,10 +1,12 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import styles from "./MobileMenu.module.scss";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
+import { ROUTES } from "../constant/Routes";
 
 const MobileMenu = () => {
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const onClose = () => {
     setIsMobileMenuOpen(false);
@@ -25,17 +27,21 @@ const MobileMenu = () => {
           </button>
           <Link
             className={styles.mobileMenuLink}
-            to="/#reproduction"
+            to={ROUTES.REPRODUCTION}
             onClick={onClose}
           >
             Репродукция
           </Link>
-          <Link className={styles.mobileMenuLink} to="/#new" onClick={onClose}>
+          <Link
+            className={styles.mobileMenuLink}
+            to={ROUTES.NEW}
+            onClick={onClose}
+          >
             Новинки
           </Link>
           <Link
             className={styles.mobileMenuLink}
-            to="/#about"
+            to={ROUTES.ABOUT}
             onClick={onClose}
           >
             О нас

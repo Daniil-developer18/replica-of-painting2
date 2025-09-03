@@ -12,7 +12,7 @@ const Reproduction = () => {
   );
 
   return (
-    <div className={styles.reproduction}>
+    <div className={styles.reproduction} id="reproduction">
       <div className={styles.reproductionHeader}>
         <h1 className={styles.reproductionTitle}>Репродукции</h1>
         <div className={styles.buttonsContainer}>

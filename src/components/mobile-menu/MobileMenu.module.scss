@@ -35,7 +35,7 @@
   left: 0;
   width: 300px;
   height: 100vh;
-  background: #e1ede6;
+  background: var(--bg-primary);
   padding: 20px;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -76,10 +76,10 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #666;
+  color: var(--text-light);
 
   &:hover {
-    color: #333;
+    color: var(--text-dark);
   }
 }
 
@@ -88,10 +88,10 @@
   margin-top: 20px;
   padding: 15px 0;
   font-size: 18px;
-  color: #2c2d35;
+  color: var(--text-dark);
   text-decoration: none;
   &:hover {
-    color: #4caf50;
+    color: var(--primary-color);
   }
 }
 
@@ -101,10 +101,10 @@
   border: none;
   cursor: pointer;
   font-size: 24px;
-  color: #424242;
+  color: var(--icon-color);
 
   &:hover {
-    color: #4caf50;
+    color: var(--primary-color);
   }
 
   @media (max-width: 768px) {
