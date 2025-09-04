@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   padding: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .paintingImage {
     width: 100%;
@@ -12,30 +15,29 @@
 
   .paintingAuthor {
     margin: 12px 16px 4px 16px;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--text-muted);
-    font-weight: 400;
+    font-weight: 500;
   }
 
   .paintingName {
     margin: 0 16px 8px 16px;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 500;
     color: var(--text-dark);
-    line-height: 1.3;
   }
 
   .paintingMaterial {
     margin: 0 16px 12px 16px;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
     color: var(--text-dark);
-    font-style: italic;
   }
 
   .paintingPrice {
     margin: 0 16px 16px 16px;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 500;
     color: var(--primary-color);
   }
 
@@ -49,10 +51,39 @@
     font-weight: 500;
     cursor: pointer;
     transition: background 0.3s ease;
+    margin-top: auto;
+    align-self: center;
 
     &:hover {
       background: var(--primary-color);
       color: var(--text-light-selected);
+    }
+  }
+  @media (max-width: 1000px) {
+    .paintingName {
+      font-size: 20px;
+    }
+    .paintingMaterial {
+      font-size: 10px;
+    }
+    .paintingPrice {
+      font-size: 18px;
+    }
+  }
+  @media (max-width: 768px) {
+    .paintingName {
+      font-size: 18px;
+    }
+    .paintingMaterial {
+      font-size: 10px;
+    }
+    .paintingPrice {
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 360px) {
+    .paintingButton {
+      font-size: 12px;
     }
   }
 }

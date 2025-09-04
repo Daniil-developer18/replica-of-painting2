@@ -10,6 +10,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
   }
 
   .reproductionTitle {
@@ -17,11 +23,19 @@
     font-weight: 500;
     color: var(--text-dark);
     margin: 0;
+    @media (max-width: 1000px) {
+      font-size: 36px;
+    }
   }
 
   .buttonsContainer {
     display: flex;
     gap: 32px;
+    @media (max-width: 450px) {
+      overflow-x: auto;
+      max-width: 100%;
+      scrollbar-width: none;
+    }
   }
 
   .button {
@@ -43,16 +57,20 @@
       background: var(--accent-color);
       color: var(--text-light-selected);
     }
+    @media (max-width: 1000px) {
+      font-size: 14px;
+    }
   }
   .paintingsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0 32px;
-    gap: 40px;
+    column-gap: 20px;
+    row-gap: 40px;
     @media (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @media (max-width: 400px) {
+    @media (max-width: 560px) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
