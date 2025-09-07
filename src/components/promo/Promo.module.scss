@@ -1,0 +1,96 @@
+.promo {
+  display: grid;
+  position: relative;
+  min-height: 574px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(6, 31, 50, 0.8), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .promoImage {
+    display: block;
+    grid-area: 1 / 1;
+    min-height: 574px;
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+  }
+  .promoTextOverlay {
+    grid-area: 1 / 1;
+    z-index: 2;
+    text-align: left;
+    padding: 20px;
+    max-width: 600px;
+    margin-left: 120px;
+    align-self: center;
+    @media (max-width: 768px) {
+      margin-left: 20px;
+    }
+    @media (max-width: 480px) {
+      margin-left: 10px;
+    }
+  }
+  .promoTitle {
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 40px;
+    color: var(--text-light-selected);
+    @media (max-width: 768px) {
+      font-size: 30px;
+    }
+    @media (max-width: 480px) {
+      font-size: 24px;
+    }
+  }
+
+  .promoMainText {
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-size: 18px;
+    color: #ffffff;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+
+  .promoButton {
+    display: inline-block;
+    background: #eedb6d;
+    color: var(--text-dark);
+    padding: 20px 60px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 18px;
+
+    &:hover {
+      background: #e3c103;
+    }
+    @media (max-width: 768px) {
+      font-size: 16px;
+      padding: 12px 36px;
+    }
+    @media (max-width: 480px) {
+      font-size: 14px;
+      padding: 10px 24px;
+    }
+  }
+  @media (max-width: 768px) {
+    min-height: 400px;
+  }
+  @media (max-width: 480px) {
+    min-height: 300px;
+  }
+}

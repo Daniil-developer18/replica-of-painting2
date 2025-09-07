@@ -24,3 +24,6 @@ const PaintingCard = ({ painting }: PaintingCardProps) => {
 };
 
 export default PaintingCard;
+
+
+

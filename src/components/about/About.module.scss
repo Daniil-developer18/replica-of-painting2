@@ -1,0 +1,99 @@
+.about {
+  padding: 64px 0;
+  max-width: 1110px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; // Две колонки
+  gap: 24px; // Отступ между колонками
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 64px 32px;
+  }
+}
+
+.aboutImage {
+  width: 445px;
+  height: 440px;
+  @media (max-width: 768px) {
+    width: 510px;
+    height: 504px;
+  }
+  @media (max-width: 576px) {
+    width: 375px;
+    height: 370px;
+  }
+  @media (max-width: 440px) {
+    width: 300px;
+    height: 295px;
+  }
+  @media (max-width: 400px) {
+    width: 275px;
+    height: 270px;
+  }
+  @media (max-width: 320px) {
+    width: 250px;
+    height: 245px;
+  }
+}
+
+.aboutText {
+  margin-top: 50px;
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+}
+
+.aboutTitle {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  text-align: left;
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+  @media (max-width: 400px) {
+    font-size: 24px;
+  }
+}
+
+.aboutDescription {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-dark);
+  text-align: left;
+  margin-bottom: 36px;
+  @media (max-width: 1000px) {
+    font-size: 14px;
+  }
+  @media (max-width: 400px) {
+    font-size: 12px;
+  }
+  @media (max-width: 320px) {
+    font-size: 12px;
+  }
+}
+// Три круглых фото команды
+.teamPhotos {
+  display: flex;
+  justify-content: flex-start;
+  gap: 32px;
+  margin-top: 0;
+
+  img {
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+    @media (max-width: 768px) {
+      width: 80px;
+      height: 80px;
+    }
+    @media (max-width: 400px) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
