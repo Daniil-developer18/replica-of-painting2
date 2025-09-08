@@ -57,31 +57,3 @@
     }
   }
 }
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  @media (max-width: 768px) {
-    order: 3;
-  }
-
-  .cart {
-    position: relative;
-
-    .cartButton {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      font-size: 18px;
-      color: var(--icon-color);
-      transition: all 0.3s ease;
-
-      &:hover {
-        color: var(--icon-hover);
-        transform: scale(1.05);
-      }
-    }
-  }
-}

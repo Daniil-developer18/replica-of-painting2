@@ -3,9 +3,15 @@ import { useState } from "react";
 import classnames from "classnames";
 import { paintings } from "../../data/paintingsData";
 import PaintingCard from "../painting-card/PaintingCard";
+import type { Painting } from "../constant/Painting";
 
 type Country = "France" | "Germany" | "England";
-const Reproduction = () => {
+
+interface ReproductionProps {
+  onAddToCart: (painting: Painting) => void;
+}
+
+const Reproduction = ({ onAddToCart }: ReproductionProps) => {
   const [selectedCountry, setSelectedCountry] = useState<Country>("France");
   const filteredPaintings = paintings.filter(
     (painting) => painting.country === selectedCountry
@@ -44,7 +50,11 @@ const Reproduction = () => {
       </div>
       <div className={styles.paintingsGrid}>
         {filteredPaintings.map((painting) => (
-          <PaintingCard key={painting.id} painting={painting} />
+          <PaintingCard
+            key={painting.id}
+            painting={painting}
+            onAddToCart={onAddToCart}
+          />
         ))}
       </div>
     </div>

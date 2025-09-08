@@ -1,12 +1,18 @@
 import styles from "./Header.module.scss";
 import { useLocation, Link } from "react-router-dom";
 import classNames from "classnames";
-import { FiShoppingCart } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import MobileMenu from "../mobile-menu/MobileMenu";
 import { ROUTES } from "../constant/Routes";
+import CartModal from "../cart-modal/CartModal";
+import type { CartItem } from "../constant/Cart";
 
-const Header = () => {
+interface HeaderProps {
+  cartItems: CartItem[];
+  onRemoveFromCart: (id: number) => void;
+}
+
+const Header = ({ cartItems, onRemoveFromCart }: HeaderProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -17,7 +23,6 @@ const Header = () => {
       }, 100);
     }
   }, [location.hash]);
-  // const [cartItems, setCartItems] = useState(0);
 
   return (
     <header className={styles.header}>
@@ -56,20 +61,10 @@ const Header = () => {
           О нас
         </Link>
       </nav>
-      <div className={styles.actions}>
-        <div className={styles.cart}>
-          <button className={styles.cartButton} aria-label="Открыть корзину">
-            <FiShoppingCart />
-          </button>
-        </div>
-      </div>
       <MobileMenu />
+      <CartModal cartItems={cartItems} onRemoveFromCart={onRemoveFromCart} />
     </header>
   );
 };
 
 export default Header;
-
-// //     const reproductionElement = document.getElementById("reproduction");
-// reproductionElement?.scrollIntoView({ behavior: "smooth" });
-// };

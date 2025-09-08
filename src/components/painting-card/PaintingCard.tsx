@@ -3,9 +3,10 @@ import type { Painting } from "../constant/Painting";
 
 interface PaintingCardProps {
   painting: Painting;
+  onAddToCart: (painting: Painting) => void;
 }
 
-const PaintingCard = ({ painting }: PaintingCardProps) => {
+const PaintingCard = ({ painting, onAddToCart }: PaintingCardProps) => {
   return (
     <div className={styles.paintingCard}>
       <img
@@ -18,12 +19,14 @@ const PaintingCard = ({ painting }: PaintingCardProps) => {
       <p className={styles.paintingMaterial}>{painting.material}</p>
 
       <p className={styles.paintingPrice}>{painting.price} руб.</p>
-      <button className={styles.paintingButton}>В корзину</button>
+      <button
+        className={styles.paintingButton}
+        onClick={() => onAddToCart(painting)}
+      >
+        В корзину
+      </button>
     </div>
   );
 };
 
 export default PaintingCard;
-
-
-
