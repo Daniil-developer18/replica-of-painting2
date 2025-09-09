@@ -7,6 +7,12 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
 
   .paintingImage {
     width: 100%;
@@ -50,13 +56,20 @@
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s ease;
     margin-top: auto;
     align-self: center;
+    transition: all 0.3s ease;
+
+    &.added {
+      background: var(--primary-color);
+      color: var(--text-light-selected);
+      animation: buttonSuccess 0.6s ease;
+    }
 
     &:hover {
       background: var(--primary-color);
       color: var(--text-light-selected);
+      transform: translateY(-2px);
     }
   }
   @media (max-width: 1000px) {
@@ -85,5 +98,17 @@
     .paintingButton {
       font-size: 12px;
     }
+  }
+}
+
+@keyframes buttonSuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }

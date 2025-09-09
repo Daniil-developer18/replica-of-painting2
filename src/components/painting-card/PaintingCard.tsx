@@ -1,5 +1,7 @@
 import styles from "./PaintingCard.module.scss";
 import type { Painting } from "../constant/Painting";
+import { useState } from "react";
+import classnames from "classnames";
 
 interface PaintingCardProps {
   painting: Painting;
@@ -7,6 +9,14 @@ interface PaintingCardProps {
 }
 
 const PaintingCard = ({ painting, onAddToCart }: PaintingCardProps) => {
+  const [isAdded, setIsAdded] = useState(false);
+  const handleAddToCart = () => {
+    onAddToCart(painting);
+    setIsAdded(true);
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 1000);
+  };
   return (
     <div className={styles.paintingCard}>
       <img
@@ -20,10 +30,12 @@ const PaintingCard = ({ painting, onAddToCart }: PaintingCardProps) => {
 
       <p className={styles.paintingPrice}>{painting.price} руб.</p>
       <button
-        className={styles.paintingButton}
-        onClick={() => onAddToCart(painting)}
+        className={classnames(styles.paintingButton, {
+          [styles.added]: isAdded,
+        })}
+        onClick={handleAddToCart}
       >
-        В корзину
+        {isAdded ? "Добавлено" : "В корзину"}
       </button>
     </div>
   );

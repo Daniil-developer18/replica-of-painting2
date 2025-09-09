@@ -14,6 +14,18 @@ function App() {
   // Состояние корзины
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
+  // Изменение количества товара в корзине
+  const updateQuantity = (id: number, quantity: number) => {
+    setCartItems((prevItems) => {
+      if (quantity <= 0) {
+        return prevItems.filter((item) => item.painting.id !== id);
+      }
+      return prevItems.map((item) =>
+        item.painting.id === id ? { ...item, quantity: quantity } : item
+      );
+    });
+  };
+
   // Функция добавления в корзину
   const addToCart = (painting: Painting) => {
     setCartItems((prevItems) => {
@@ -40,7 +52,11 @@ function App() {
   };
   return (
     <BrowserRouter>
-      <Header cartItems={cartItems} onRemoveFromCart={removeFromCart} />
+      <Header
+        cartItems={cartItems}
+        onRemoveFromCart={removeFromCart}
+        onUpdateQuantity={updateQuantity}
+      />
       <main>
         <Hero />
         <Reproduction onAddToCart={addToCart} />

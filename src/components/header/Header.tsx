@@ -10,9 +10,14 @@ import type { CartItem } from "../constant/Cart";
 interface HeaderProps {
   cartItems: CartItem[];
   onRemoveFromCart: (id: number) => void;
+  onUpdateQuantity: (id: number, quantity: number) => void;
 }
 
-const Header = ({ cartItems, onRemoveFromCart }: HeaderProps) => {
+const Header = ({
+  cartItems,
+  onRemoveFromCart,
+  onUpdateQuantity,
+}: HeaderProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -62,7 +67,11 @@ const Header = ({ cartItems, onRemoveFromCart }: HeaderProps) => {
         </Link>
       </nav>
       <MobileMenu />
-      <CartModal cartItems={cartItems} onRemoveFromCart={onRemoveFromCart} />
+      <CartModal
+        cartItems={cartItems}
+        onRemoveFromCart={onRemoveFromCart}
+        onUpdateQuantity={onUpdateQuantity}
+      />
     </header>
   );
 };

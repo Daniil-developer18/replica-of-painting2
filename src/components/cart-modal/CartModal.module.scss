@@ -1,4 +1,5 @@
 .cartButton {
+  position: relative;
   background: none;
   border: none;
   cursor: pointer;
@@ -14,6 +15,22 @@
   @media (max-width: 768px) {
     order: 3;
   }
+}
+
+.cartCounter {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .cartModalOverlay {
@@ -68,6 +85,12 @@
   }
 }
 
+@media (max-width: 360px) {
+  .content {
+    width: 260px;
+  }
+}
+
 .title {
   margin: 0 0 16px 0;
   font-size: 20px;
@@ -86,4 +109,111 @@
   &:hover {
     color: var(--icon-hover);
   }
+}
+
+.cartItems {
+  margin: 20px 0;
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: white;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .itemInfo {
+    flex: 1;
+
+    h4 {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+  }
+
+  .removeButton {
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #cc3333;
+    }
+  }
+}
+
+.total {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 16px;
+  margin-top: 20px;
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-dark);
+    text-align: center;
+  }
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.quantityButton {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--primary-color);
+  }
+}
+
+.quantity {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
 }
