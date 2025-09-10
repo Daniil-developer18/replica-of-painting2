@@ -1,5 +1,5 @@
 import styles from "./PaintingCard.module.scss";
-import type { Painting } from "../constant/Painting";
+import type { Painting } from "../../config/interfaces/Painting";
 import { useState } from "react";
 import classnames from "classnames";
 

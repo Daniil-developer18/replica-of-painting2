@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import styles from "./MobileMenu.module.scss";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
-import { ROUTES } from "../constant/Routes";
+import { ROUTES } from "../../config/constant/Routes";
 
 const MobileMenu = () => {
   const location = useLocation();

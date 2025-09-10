@@ -1,7 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import styles from "./CartModal.module.scss";
 import { FiShoppingCart, FiX, FiTrash2, FiPlus, FiMinus } from "react-icons/fi";
-import type { CartItem } from "../constant/Cart";
+import type { CartItem } from "../../config/interfaces/Cart";
 
 interface CartModalProps {
   cartItems: CartItem[];

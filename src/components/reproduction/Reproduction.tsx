@@ -3,7 +3,7 @@ import { useState } from "react";
 import classnames from "classnames";
 import { paintings } from "../../data/paintingsData";
 import PaintingCard from "../painting-card/PaintingCard";
-import type { Painting } from "../constant/Painting";
+import type { Painting } from "../../config/interfaces/Painting";
 
 type Country = "France" | "Germany" | "England";
 

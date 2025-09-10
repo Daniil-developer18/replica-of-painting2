@@ -1,4 +1,4 @@
-import type { Painting } from "../components/constant/Painting";
+import type { Painting } from "../config/Painting";
 
 export const paintings: Painting[] = [
   {

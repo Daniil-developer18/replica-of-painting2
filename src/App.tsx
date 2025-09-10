@@ -7,8 +7,8 @@ import Reproduction from "./components/reproduction/Reproduction";
 import Promo from "./components/promo/Promo";
 import About from "./components/about/About";
 import Footer from "./components/footer/Footer";
-import type { CartItem } from "./components/constant/Cart";
-import type { Painting } from "./components/constant/Painting";
+import type { CartItem } from "./config/interfaces/Cart";
+import type { Painting } from "./config/interfaces/Painting";
 
 function App() {
   // Состояние корзины
@@ -16,40 +16,41 @@ function App() {
 
   // Изменение количества товара в корзине
   const updateQuantity = (id: number, quantity: number) => {
-    setCartItems((prevItems) => {
-      if (quantity <= 0) {
-        return prevItems.filter((item) => item.painting.id !== id);
-      }
-      return prevItems.map((item) =>
-        item.painting.id === id ? { ...item, quantity: quantity } : item
+    if (quantity <= 0) {
+      setCartItems(cartItems.filter((item) => item.painting.id !== id));
+    } else
+      setCartItems(
+        cartItems.map((item) =>
+          item.painting.id === id ? { ...item, quantity: quantity } : item
+        )
       );
-    });
   };
 
   // Функция добавления в корзину
   const addToCart = (painting: Painting) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find(
-        (item) => item.painting.id === painting.id
-      );
-      if (existingItem) {
-        return prevItems.map((item) =>
+    const existingItem = cartItems.find(
+      (item) => item.painting.id === painting.id
+    );
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((item) =>
           item.painting.id === painting.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
-        );
-      } else {
-        return [...prevItems, { painting, quantity: 1 }];
-      }
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { painting, quantity: 1 }]);
+    }
+  };
+
+  const removeFromCart = (id: number) => {
+    setCartItems((prevItems) => {
+      const deletedItem = prevItems.filter((item) => item.painting.id != id);
+      return deletedItem;
     });
   };
 
-  // Функция удаления из корзины
-  const removeFromCart = (id: number) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.painting.id !== id)
-    );
-  };
   return (
     <BrowserRouter>
       <Header

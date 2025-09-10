@@ -3,9 +3,9 @@ import { useLocation, Link } from "react-router-dom";
 import classNames from "classnames";
 import { useEffect } from "react";
 import MobileMenu from "../mobile-menu/MobileMenu";
-import { ROUTES } from "../constant/Routes";
+import { ROUTES } from "../../config/constant/Routes";
 import CartModal from "../cart-modal/CartModal";
-import type { CartItem } from "../constant/Cart";
+import type { CartItem } from "../../config/interfaces/Cart";
 
 interface HeaderProps {
   cartItems: CartItem[];
