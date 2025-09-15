@@ -1,33 +1,47 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import styles from "./CartModal.module.scss";
 import { FiShoppingCart, FiX, FiTrash2, FiPlus, FiMinus } from "react-icons/fi";
+import { MdDelete } from "react-icons/md";
 import type { CartItem } from "../../config/interfaces/Cart";
+import DeleteConfirmModal from "../delete-cart-modal/DeleteConfirmModal";
 
 interface CartModalProps {
   cartItems: CartItem[];
   onRemoveFromCart: (id: number) => void;
   onUpdateQuantity: (id: number, quantity: number) => void;
+  onCalculateTotalPriceWithDiscount: (cartItems: CartItem[]) => number;
+  onCalculateTotalQuantity: (cartItems: CartItem[]) => number;
+  onCalculateDiscount: (cartItems: CartItem[]) => number;
+  onDeleteAll: () => void;
 }
 
 const CartModal = ({
   cartItems,
   onRemoveFromCart,
   onUpdateQuantity,
+  onCalculateTotalPriceWithDiscount,
+  onCalculateTotalQuantity,
+  onCalculateDiscount,
+  onDeleteAll,
 }: CartModalProps) => {
-  // Подсчет общей суммы
-  const totalPrice = cartItems.reduce(
-    (sum, item) => sum + item.painting.price * item.quantity,
-    0
-  );
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  // // Подсчет ПО СТАРОМУ общей суммы
+  // const totalPrice = cartItems.reduce(
+  //   (sum, item) => sum + item.painting.price * item.quantity,
+  //   0
+  // );
+  // const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const priceWithDiscount = onCalculateTotalPriceWithDiscount(cartItems);
+  const totalQuantity = onCalculateTotalQuantity(cartItems);
+  const discount = onCalculateDiscount(cartItems);
 
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button className={styles.cartButton} aria-label="Открыть корзину">
           <FiShoppingCart />
-          {totalItems > 0 && (
-            <span className={styles.cartCounter}>{totalItems}</span>
+          {totalQuantity > 0 && (
+            <span className={styles.cartCounter}>{totalQuantity}</span>
           )}
         </button>
       </Dialog.Trigger>
@@ -35,7 +49,16 @@ const CartModal = ({
       <Dialog.Portal>
         <Dialog.Overlay className={styles.cartModalOverlay} />
         <Dialog.Content className={styles.content}>
-          <Dialog.Title className={styles.title}>Корзина</Dialog.Title>
+          <Dialog.Title className={styles.title}>
+            <div className={styles.cart}>
+              <div>Корзина</div>
+              {totalQuantity >= 1 && (
+                <button className={styles.deleteAllButton}>
+                  <DeleteConfirmModal onDeleteAll={onDeleteAll} />
+                </button>
+              )}
+            </div>
+          </Dialog.Title>
           <div className={styles.cartItems}>
             {cartItems.length === 0 ? (
               <p>Корзина пуста</p>
@@ -78,7 +101,12 @@ const CartModal = ({
           </div>
           <div className={styles.total}>
             <p>
-              Итого: {totalPrice} руб. ({totalItems} шт.)
+              Итого: {priceWithDiscount} руб. ({totalQuantity} шт.)
+            </p>
+            <p style={{ fontSize: "12px", color: "red" }}>
+              {totalQuantity <= 2
+                ? "При заказе от 3 штук - скидка 10%"
+                : `Скидка 10% применена, экономия: ${discount} руб.`}
             </p>
           </div>
           <Dialog.Close asChild>

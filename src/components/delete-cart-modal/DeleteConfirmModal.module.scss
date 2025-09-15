@@ -1,0 +1,68 @@
+.deleteAll {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+.deleteConfrimModalMenuOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+}
+
+.deleteConfrimModalMenuContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 2001;
+  min-width: 300px;
+  text-align: center;
+
+  div {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  button {
+    margin: 0 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:first-of-type {
+      background: #ff4444;
+      color: white;
+
+      &:hover {
+        background: #cc3333;
+        transform: translateY(-1px);
+      }
+    }
+
+    &:last-of-type {
+      background: #e0e0e0;
+      color: #333;
+
+      &:hover {
+        background: #d0d0d0;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}

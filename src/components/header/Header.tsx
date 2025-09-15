@@ -11,12 +11,20 @@ interface HeaderProps {
   cartItems: CartItem[];
   onRemoveFromCart: (id: number) => void;
   onUpdateQuantity: (id: number, quantity: number) => void;
+  onCalculateTotalPriceWithDiscount: (cartItems: CartItem[]) => number;
+  onCalculateTotalQuantity: (cartItems: CartItem[]) => number;
+  onCalculateDiscount: (cartItems: CartItem[]) => number;
+  onDeleteAll: () => void; // void - ничего не возвращает функцияя
 }
 
 const Header = ({
   cartItems,
   onRemoveFromCart,
   onUpdateQuantity,
+  onCalculateTotalPriceWithDiscount,
+  onCalculateTotalQuantity,
+  onCalculateDiscount,
+  onDeleteAll,
 }: HeaderProps) => {
   const location = useLocation();
 
@@ -71,6 +79,10 @@ const Header = ({
         cartItems={cartItems}
         onRemoveFromCart={onRemoveFromCart}
         onUpdateQuantity={onUpdateQuantity}
+        onCalculateTotalPriceWithDiscount={onCalculateTotalPriceWithDiscount}
+        onCalculateTotalQuantity={onCalculateTotalQuantity}
+        onCalculateDiscount={onCalculateDiscount}
+        onDeleteAll={onDeleteAll}
       />
     </header>
   );

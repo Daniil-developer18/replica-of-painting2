@@ -14,7 +14,12 @@ function App() {
   // Состояние корзины
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // Изменение количества товара в корзине
+  //Удаление всех товаров
+  const deleteAll = () => {
+    setCartItems([]);
+  };
+
+  // Изменение количества определенного товара в корзине
   const updateQuantity = (id: number, quantity: number) => {
     if (quantity <= 0) {
       setCartItems(cartItems.filter((item) => item.painting.id !== id));
@@ -44,11 +49,42 @@ function App() {
     }
   };
 
+  // Функция удаления в корзине товара
   const removeFromCart = (id: number) => {
     setCartItems((prevItems) => {
       const deletedItem = prevItems.filter((item) => item.painting.id != id);
       return deletedItem;
     });
+  };
+
+  // Функция подсчета количества в штуках всех товаров
+  const calculateTotalQuantity = (cartItems: CartItem[]) => {
+    const totalQuantity = cartItems.reduce((acc, item) => {
+      return acc + item.quantity;
+    }, 0);
+    return totalQuantity;
+  };
+
+  // Функция подсчета скидки
+  const calculateTotalPriceWithDiscount = (cartItems: CartItem[]) => {
+    const totalQuantity = calculateTotalQuantity(cartItems);
+    const totalPrice = cartItems.reduce((acc, item) => {
+      return acc + item.painting.price * item.quantity;
+    }, 0);
+    return totalQuantity >= 3 ? totalPrice - totalPrice / 10 : totalPrice;
+  };
+
+  // Функция подсчета экономии
+  const calculateDiscount = (cartItems: CartItem[]) => {
+    const totalQuantity = calculateTotalQuantity(cartItems);
+    let totalPrice = 0;
+    cartItems.forEach((item) => {
+      totalPrice += item.painting.price * item.quantity;
+    });
+    const totalPriceWithDiscount = totalPrice - totalPrice / 10;
+    const discount =
+      totalQuantity >= 3 ? totalPrice - totalPriceWithDiscount : 0;
+    return discount;
   };
 
   return (
@@ -57,6 +93,10 @@ function App() {
         cartItems={cartItems}
         onRemoveFromCart={removeFromCart}
         onUpdateQuantity={updateQuantity}
+        onCalculateTotalPriceWithDiscount={calculateTotalPriceWithDiscount}
+        onCalculateTotalQuantity={calculateTotalQuantity}
+        onCalculateDiscount={calculateDiscount}
+        onDeleteAll={deleteAll}
       />
       <main>
         <Hero />
