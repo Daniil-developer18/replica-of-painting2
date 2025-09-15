@@ -53,9 +53,7 @@ const CartModal = ({
             <div className={styles.cart}>
               <div>Корзина</div>
               {totalQuantity >= 1 && (
-                <button className={styles.deleteAllButton}>
-                  <DeleteConfirmModal onDeleteAll={onDeleteAll} />
-                </button>
+                <DeleteConfirmModal onDeleteAll={onDeleteAll} />
               )}
             </div>
           </Dialog.Title>
