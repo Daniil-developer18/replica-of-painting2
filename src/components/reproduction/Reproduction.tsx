@@ -1,4 +1,4 @@
-import styles from "./reproduction.module.scss";
+import styles from "./Reproduction.module.scss";
 import { useState } from "react";
 import classnames from "classnames";
 import { paintings } from "../../data/paintingsData";
