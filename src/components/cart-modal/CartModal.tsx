@@ -1,7 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import styles from "./CartModal.module.scss";
 import { FiShoppingCart, FiX, FiTrash2, FiPlus, FiMinus } from "react-icons/fi";
-import { MdDelete } from "react-icons/md";
 import type { CartItem } from "../../config/interfaces/Cart";
 import DeleteConfirmModal from "../delete-cart-modal/DeleteConfirmModal";
 

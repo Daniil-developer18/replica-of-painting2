@@ -1,5 +1,4 @@
 import styles from "./Promo.module.scss";
-import { Link } from "react-router-dom";
 
 const Promo = () => {
   return (
